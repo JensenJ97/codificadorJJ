@@ -1,3 +1,4 @@
+//funcion capturar texto 
 function capturarTexto(){
     let input = document.querySelector("#input");
     let texto = input.value.toString() 
@@ -13,12 +14,12 @@ function codificarTexto(texto){
     }
 };
 
-function descodificarTexto(texto){
+function decodificarTexto(texto){
     if(texto.length > 0){
-        var textoDescodificado = texto.toLowerCase().replace(/enter/g,'e').replace(/imes/gm,'i').replace(/ai/g, 'a').replace(/ober/g,'o').replace(/ufat/g,'u')
-        return textoDescodificado;
+        var textoDecodificado = texto.toLowerCase().replace(/enter/g,'e').replace(/imes/gm,'i').replace(/ai/g, 'a').replace(/ober/g,'o').replace(/ufat/g,'u')
+        return textoDecodificado;
     } else {
-        alert("olvido ingresar texto para descodificar")
+        alert("olvido ingresar texto para decodificar")
     }
 };
 
@@ -43,18 +44,18 @@ botonCodificar.addEventListener("click",function(event){
     }   
 });
 
-//Funcion boton descodificar 
-var botonDescodificar = document.querySelector("#boton-descodificar");
-botonDescodificar.addEventListener("click",function(event){
+//Funcion boton decodificar 
+var botonDecodificar = document.querySelector("#boton-decodificar");
+botonDecodificar.addEventListener("click",function(event){
     event.preventDefault();
     var output = document.querySelector("#output")
     var form = document.querySelector("form")
    
     var error = document.querySelector("#mensaje")
     var texto = capturarTexto();
-    let textoDescodificado = descodificarTexto(texto);
+    let textoDecodificado = decodificarTexto(texto);
     if(texto.length > 0) {
-        output.innerHTML = textoDescodificado
+        output.innerHTML = textoDecodificado
         error.classList.remove("mensaje-error")
         form.reset();            
     } else {
