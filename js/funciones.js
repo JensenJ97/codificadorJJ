@@ -5,38 +5,38 @@ function capturarTexto(){
     return texto
 };
 
-function codificarTexto(texto){
+function encriptarTexto(texto){
     if(texto.length > 0){
-        var textoCodificado = texto.toLowerCase().replace(/e/g,'enter').replace(/i/gm,'imes').replace(/a/g, 'ai').replace(/o/g,'ober').replace(/u/g,'ufat')
-        return textoCodificado;
+        var textoEncriptado = texto.toLowerCase().replace(/e/g,'enter').replace(/i/gm,'imes').replace(/a/g, 'ai').replace(/o/g,'ober').replace(/u/g,'ufat')
+        return textoEncriptado;
     } else {
-        alert("olvido ingresar texto para codificar")   
+        alert("olvido ingresar texto para encriptar")   
     }
 };
 
-function decodificarTexto(texto){
+function desencriptarTexto(texto){
     if(texto.length > 0){
-        var textoDecodificado = texto.toLowerCase().replace(/enter/g,'e').replace(/imes/gm,'i').replace(/ai/g, 'a').replace(/ober/g,'o').replace(/ufat/g,'u')
-        return textoDecodificado;
+        var textoDesencriptado = texto.toLowerCase().replace(/enter/g,'e').replace(/imes/gm,'i').replace(/ai/g, 'a').replace(/ober/g,'o').replace(/ufat/g,'u')
+        return textoDesencriptado;
     } else {
-        alert("olvido ingresar texto para decodificar")
+        alert("olvido ingresar texto para desencriptar")
     }
 };
 
 
 
-//Funcion boton codificar
-var botonCodificar = document.querySelector("#boton-codificar");
-botonCodificar.addEventListener("click",function(event){
+//Funcion boton encriptar
+var botonEncriptar = document.querySelector("#boton-encriptar");
+botonEncriptar.addEventListener("click",function(event){
     event.preventDefault();
     var output = document.querySelector("#output")
     var form = document.querySelector("form")
 
     var error = document.querySelector("#mensaje")
     var texto = capturarTexto();
-    var textoCodificado = codificarTexto(texto);
+    var textoEncriptado = encriptarTexto(texto);
     if(texto.length > 0) {
-        output.innerHTML = textoCodificado
+        output.innerHTML = textoEncriptado
         error.classList.remove("mensaje-error")
         form.reset();
     } else {
@@ -44,18 +44,18 @@ botonCodificar.addEventListener("click",function(event){
     }   
 });
 
-//Funcion boton decodificar 
-var botonDecodificar = document.querySelector("#boton-decodificar");
-botonDecodificar.addEventListener("click",function(event){
+//Funcion boton desencriptar
+var botonDesencriptar = document.querySelector("#boton-desencriptar");
+botonDesencriptar.addEventListener("click",function(event){
     event.preventDefault();
     var output = document.querySelector("#output")
     var form = document.querySelector("form")
    
     var error = document.querySelector("#mensaje")
     var texto = capturarTexto();
-    let textoDecodificado = decodificarTexto(texto);
+    let textoDesencriptado = desencriptarTexto(texto);
     if(texto.length > 0) {
-        output.innerHTML = textoDecodificado
+        output.innerHTML = textoDesencriptado
         error.classList.remove("mensaje-error")
         form.reset();            
     } else {
